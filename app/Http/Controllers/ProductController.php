@@ -12,7 +12,25 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('ListarProdutos');
+        $products = [
+            ['id'           => 1,
+            'nome_produto'  => 'Camisa',
+            'valor_venda'   => 33.30,
+            'categoria'     => 'Vestuario',
+            'marca'         => 'Nike',
+            'qtd_estoque'   => 200 ]
+            ,
+            ['id'           => 2,
+            'nome_produto'  => 'Calça',
+            'valor_venda'   => 50.30,
+            'categoria'     => 'Vestuario',
+            'marca'         => 'Adidas',
+            'qtd_estoque'   => 200 ]
+        ];
+
+        $productList = array_column($products, 'nome_produto');
+
+        return view('ListaProdutos', compact('products', 'productList'));
     }
 
     /**
