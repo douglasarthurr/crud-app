@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>PRODUTO</title>
 </head>
 
+
 <body>
-    <header>
-        <nav>
-            <li>HOME</li>
-            <li>LISTA PRODUTOS</li>
-        </nav>
-    </header>  
+    <div>
+        <h1>LISTAR PRODUTOS</h1>
+        <td><a href="{{url('/home')}}"> <button> HOME</button></a></td>
+        <td><a href="{{url('/produtos/criar')}}"> <button> CADASTRAR PRODUTOS</button></a></td>
+        <td><a href="{{url('/produtos')}}"> <button disabled > LISTAR PRODUTOS</button></a></td>
+    </div> 
 
     <div>
 
         <h1>Lista de produtos</h1>
         <hr>
+        @if (Session::has('message'))
+            <h2> {!! Session::get('message')!!} </h2>
+        @endif
 
         <ul>
             <!-- Blade -->
