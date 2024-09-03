@@ -12,7 +12,9 @@
         <tr>
             <td><a href="{{url('/home')}}"> <button disabled> HOME</button></a></td>
             <td><a href="{{url('/produtos/criar')}}"> <button> CADASTRAR PRODUTOS</button></a></td>
-            <td><a href="{{url('/produtos')}}"> <button> LISTAR PRODUTOS</button></a></td>
+            <td><a href="{{url('/produtos')}}"> <button > LISTAR PRODUTOS</button></a></td>
+            <td><a href="{{url('/cliente')}}"> <button  > CLIENTE</button></a></td>
+            <td><a href="{{url('/pedido')}}"> <button  > PEDIDO</button></a></td>
         </tr>
     </div>
     

@@ -10,9 +10,13 @@
 <body>
     <div>
         <h1>LISTAR PRODUTOS</h1>
-        <td><a href="{{url('/home')}}"> <button> HOME</button></a></td>
-        <td><a href="{{url('/produtos/criar')}}"> <button> CADASTRAR PRODUTOS</button></a></td>
-        <td><a href="{{url('/produtos')}}"> <button disabled > LISTAR PRODUTOS</button></a></td>
+        <tr>
+            <td><a href="{{url('/home')}}"> <button> HOME</button></a></td>
+            <td><a href="{{url('/produtos/criar')}}"> <button> CADASTRAR PRODUTOS</button></a></td>
+            <td><a href="{{url('/produtos')}}"> <button disabled> LISTAR PRODUTOS</button></a></td>
+            <td><a href="{{url('/cliente')}}"> <button  > CLIENTE</button></a></td>
+            <td><a href="{{url('/pedido')}}"> <button  > PEDIDO</button></a></td>
+        </tr>
     </div> 
 
     <div>
