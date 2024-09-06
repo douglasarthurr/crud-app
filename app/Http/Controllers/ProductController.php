@@ -12,9 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderby('created_at', 'desc') -> get();
-        return view('ListarProdutos')
-                -> with('products', $products);
+        $products = Product::all();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -22,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('CadastrarProduto');
+        return view('products.create');
     }
 
     /**
@@ -42,7 +41,7 @@ class ProductController extends Controller
 
         Product::create($request -> all());
 
-        return redirect('/produtos') -> with('sucess', 'Produto Criado com sucesso👌');
+        return redirect() -> route('products.index') -> with('sucess', 'Produto Criado com sucesso👌');
 
     }
 
@@ -50,32 +49,44 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request -> validate([
+            'nome_produto'      => 'required',
+            'marca'             => 'required',
+            'categoria'         => 'required',
+            'valor_compra'      => 'required|numeric',
+            'valor_venda'       => 'required|numeric',
+            'qtd_estoque'       => 'required|integer',
+        ]);
+
+        $product -> update($request -> all());
+
+        return redirect() -> route('products.index')->with('success', 'Produto atualizado com sucesso.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
-        //
+        $product -> delete();
+        return redirect() -> route('products.index')-> with('success', 'Produto excluido com sucesso');
     }
 }

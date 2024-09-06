@@ -23,9 +23,13 @@
 
         <h1>Lista de produtos</h1>
         <hr>
-        @if (Session::has('message'))
-            <h2> {!! Session::get('message')!!} </h2>
-        @endif
+        @if(Session::has('message'))
+            <div role="alert">zvbhtj
+                
+                <h4 style="color: #045c01"><strong>Parabéns!</strong> {!! Session::get('message') !!}</h4>
+
+            </div>
+        @endif
 
         <ul>
             <!-- Blade -->
